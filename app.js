@@ -1,7 +1,11 @@
 const app = new PIXI.Application();
 const ufoList = [];
 
+
 document.body.appendChild(app.view);
+
+const background = PIXI.Sprite.from('assets/background.jpg');
+app.stage.addChild(background);
 
 const rocket = PIXI.Sprite.from('assets/rocket.png');
 rocket.x = 350;
