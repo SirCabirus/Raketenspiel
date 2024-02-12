@@ -1,4 +1,7 @@
-const app = new PIXI.Application();
+const APPWIDTH = 1024;
+const APPHEIGHT = 728;
+
+const app = new PIXI.Application({width: APPWIDTH, height: APPHEIGHT});
 const ufoList = [];
 
 
@@ -8,15 +11,15 @@ const background = PIXI.Sprite.from('assets/background.jpg');
 app.stage.addChild(background);
 
 const rocket = PIXI.Sprite.from('assets/rocket.png');
-rocket.x = 350;
-rocket.y = 520;
+rocket.x = APPWIDTH / 2;
+rocket.y = APPHEIGHT - 80;
 rocket.scale.x = 0.05;
 rocket.scale.y = 0.05;
 app.stage.addChild(rocket);
 
 gameInterval(function() {
     const ufo = PIXI.Sprite.from('assets/ufo' + random(1, 2) + '.png');
-    ufo.x = random(0, 700);
+    ufo.x = random(0, APPWIDTH - 60);
     ufo.y = -25;
     ufo.scale.x = 0.1;
     ufo.scale.y = 0.1;
