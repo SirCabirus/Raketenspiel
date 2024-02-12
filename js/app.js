@@ -7,10 +7,10 @@ const ufoList = [];
 
 document.body.appendChild(app.view);
 
-const background = PIXI.Sprite.from('assets/background.jpg');
+const background = PIXI.Sprite.from('./assets/background.jpg');
 app.stage.addChild(background);
 
-const rocket = PIXI.Sprite.from('assets/rocket.png');
+const rocket = PIXI.Sprite.from('./assets/rocket.png');
 rocket.x = APPWIDTH / 2;
 rocket.y = APPHEIGHT - 80;
 rocket.scale.x = 0.05;
@@ -18,7 +18,7 @@ rocket.scale.y = 0.05;
 app.stage.addChild(rocket);
 
 gameInterval(function() {
-    const ufo = PIXI.Sprite.from('assets/ufo' + random(1, 2) + '.png');
+    const ufo = PIXI.Sprite.from('./assets/ufo' + random(1, 2) + '.png');
     ufo.x = random(0, APPWIDTH - 60);
     ufo.y = -25;
     ufo.scale.x = 0.1;
@@ -42,9 +42,9 @@ function rightKeyPressed() {
 }
 
 function spaceKeyPressed() {
-    const bullet = PIXI.Sprite.from('assets/bullet.png');
-    bullet.x = rocket.x + 15;
-    bullet.y = 500;
+    const bullet = PIXI.Sprite.from('./assets/bullet.png');
+    bullet.x = rocket.x + 15; 
+    bullet.y = rocket.y - 10  ;
     bullet.scale.x = 0.02;
     bullet.scale.y = 0.02;
     flyUp(bullet);
