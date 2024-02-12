@@ -8,6 +8,7 @@ let statusLine;
 let score = 0;
 
 let shootsnd;
+let explode;
 
 document.body.appendChild(app.view);
 
@@ -65,6 +66,7 @@ function spaceKeyPressed() {
     waitForCollision(bullet, ufoList).then(function([bullet, ufo]) {
         app.stage.removeChild(ufo);
         app.stage.removeChild(bullet);
+        explode.play();
         score = score + 10;                
 
     });

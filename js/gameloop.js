@@ -66,6 +66,12 @@ function GAMELOOPJS_START() {
         if (!soundIsInitalized) {
           console.log("Sound initialisiert.");
           shootsnd = new Howl({ src: ["snd/shoot.mp3"], autoplay: true, html5: true });
+          explode = new Howl({
+            src: ["snd/explosion.mp3"],
+            autoplay: false,
+            html5: true,
+          });
+        
           soundIsInitalized = true;
         }
         spaceKeyPressed();
