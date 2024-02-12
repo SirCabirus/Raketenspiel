@@ -64,15 +64,7 @@ function GAMELOOPJS_START() {
     if (GAMELOOPJS_KEY[" "]) {
       if (!spaceKeyLocked) {
         if (!soundIsInitalized) {
-          console.log("Sound initialisiert.");
-          shootsnd = new Howl({ src: ["snd/shoot.mp3"], autoplay: true, html5: true });
-          explode = new Howl({
-            src: ["snd/explosion.mp3"],
-            autoplay: false,
-            html5: true,
-          });
-        
-          soundIsInitalized = true;
+          initializeSound();
         }
         spaceKeyPressed();
         spaceKeyLocked = true;
@@ -100,6 +92,18 @@ function waitForCollision(object1, object2) {
       }
     }, 50);
   });
+}
+
+function initializeSound() {
+  console.log("Sound initialisiert.");
+  shootsnd = new Howl({ src: ["snd/shoot.mp3"], autoplay: true, html5: true });
+  explode = new Howl({
+    src: ["snd/explosion.mp3"],
+    autoplay: false,
+    html5: true,
+  });
+
+  soundIsInitalized = true;
 }
 
 function isColliding(object1, object2) {
