@@ -22,6 +22,12 @@ rocket.scale.y = 0.05;
 app.stage.addChild(rocket);
 
 gameInterval(function() {
+
+    statusLine = document.getElementById("status");
+    statusLine.textContent = "Score: " + score;
+    console.log(statusLine.textContent);
+    
+
     const ufo = PIXI.Sprite.from('./assets/ufo' + random(1, 2) + '.png');
     ufo.x = random(0, APPWIDTH - 60);
     ufo.y = -25;
@@ -59,12 +65,7 @@ function spaceKeyPressed() {
     waitForCollision(bullet, ufoList).then(function([bullet, ufo]) {
         app.stage.removeChild(ufo);
         app.stage.removeChild(bullet);
-        score = score + 10;
-        
-        statusLine = document.getElementById("status");
-        statusLine.textContent = "Score: " + score;
-        console.log(statusLine.textContent);
-        
+        score = score + 10;                
 
     });
 }
