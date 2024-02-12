@@ -5,8 +5,6 @@ const app = new PIXI.Application({width: APPWIDTH, height: APPHEIGHT});
 const ufoList = [];
 
 let shootsnd;
-// shootsnd = new Howl({ src: ["snd/shoot.mp3"], autoplay: true, html5: true });
-
 
 document.body.appendChild(app.view);
 
