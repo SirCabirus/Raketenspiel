@@ -4,6 +4,9 @@ const APPHEIGHT = 728;
 const app = new PIXI.Application({width: APPWIDTH, height: APPHEIGHT});
 const ufoList = [];
 
+let statusLine;
+let score = 0;
+
 let shootsnd;
 
 document.body.appendChild(app.view);
@@ -56,5 +59,12 @@ function spaceKeyPressed() {
     waitForCollision(bullet, ufoList).then(function([bullet, ufo]) {
         app.stage.removeChild(ufo);
         app.stage.removeChild(bullet);
+        score = score + 10;
+        
+        statusLine = document.getElementById("status");
+        statusLine.textContent = "Score: " + score;
+        console.log(statusLine.textContent);
+        
+
     });
 }
