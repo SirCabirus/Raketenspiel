@@ -55,6 +55,7 @@ GAMELOOPJS_START();
 
 function GAMELOOPJS_START() {
   let spaceKeyLocked = false;
+  let soundIsInitalized = false;
   gameInterval(() => {
     if (GAMELOOPJS_KEY["ArrowLeft"]) leftKeyPressed();
     if (GAMELOOPJS_KEY["ArrowRight"]) rightKeyPressed();
@@ -62,6 +63,11 @@ function GAMELOOPJS_START() {
     if (GAMELOOPJS_KEY["ArrowDown"]) downKeyPressed();
     if (GAMELOOPJS_KEY[" "]) {
       if (!spaceKeyLocked) {
+        if (!soundIsInitalized) {
+          console.log("Sound initialisiert.");
+          shootsnd = new Howl({ src: ["snd/shoot.mp3"], autoplay: true, html5: true });
+          soundIsInitalized = true;
+        }
         spaceKeyPressed();
         spaceKeyLocked = true;
         setTimeout(() => {

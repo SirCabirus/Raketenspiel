@@ -4,6 +4,9 @@ const APPHEIGHT = 728;
 const app = new PIXI.Application({width: APPWIDTH, height: APPHEIGHT});
 const ufoList = [];
 
+let shootsnd;
+// shootsnd = new Howl({ src: ["snd/shoot.mp3"], autoplay: true, html5: true });
+
 
 document.body.appendChild(app.view);
 
@@ -49,6 +52,8 @@ function spaceKeyPressed() {
     bullet.scale.y = 0.02;
     flyUp(bullet);
     app.stage.addChild(bullet);
+    shootsnd.play();
+
 
     waitForCollision(bullet, ufoList).then(function([bullet, ufo]) {
         app.stage.removeChild(ufo);
