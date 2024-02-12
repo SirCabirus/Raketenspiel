@@ -50,7 +50,7 @@ function spaceKeyPressed() {
     bullet.y = rocket.y - 10  ;
     bullet.scale.x = 0.02;
     bullet.scale.y = 0.02;
-    flyUp(bullet);
+    flyUp(bullet, 5, 3000);
     app.stage.addChild(bullet);
     shootsnd.play();
 

@@ -27,7 +27,7 @@ function spaceKeyPressed() {
   console.log("Please implement the function spaceKeyPressed()");
 }
 
-function flyUp(gameObject, speed = 10, repeat = 2000) {
+function flyUp(gameObject, speed =  10, repeat = 2000) {
   let i = 0;
   let interval = gameInterval(() => {
     gameObject.y -= speed;
