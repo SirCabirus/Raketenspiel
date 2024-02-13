@@ -7,9 +7,6 @@ const ufoList = [];
 let statusLine;
 let score = 0;
 
-let shootsnd;
-let explode;
-
 document.body.appendChild(app.view);
 
 const background = PIXI.Sprite.from('./assets/background.jpg');
@@ -40,6 +37,8 @@ gameInterval(function() {
 
     waitForCollision(ufo, rocket).then(function() {
         app.stage.removeChild(rocket);
+        const gameOver = PIXI.Sprite.from('./assets/gameOver.png');
+        app.stage.addChild(gameOver);
         stopGame();
     });
 }, 1000);

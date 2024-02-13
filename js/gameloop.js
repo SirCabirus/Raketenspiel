@@ -4,6 +4,10 @@ let GAMELOOPJS_INTERVALS = [];
 
 const GAMELOOPJS_KEY = {};
 
+let shootsnd;
+let explode;
+let gameOverSnd;
+
 document.addEventListener("keydown", (e) => (GAMELOOPJS_KEY[e.key] = true));
 document.addEventListener("keyup", (e) => (GAMELOOPJS_KEY[e.key] = false));
 
@@ -102,6 +106,11 @@ function initializeSound() {
     autoplay: false,
     html5: true,
   });
+  gameOverSnd = new Howl({
+    src: ["snd/game-over.wav"],
+    autoplay: false,
+    html5: true,
+  });
 
   soundIsInitalized = true;
 }
@@ -123,6 +132,7 @@ function isColliding(object1, object2) {
 }
 
 function stopGame() {
+  gameOverSnd.play();
   GAMELOOPJS_INTERVALS.forEach(clearInterval);
 }
 
