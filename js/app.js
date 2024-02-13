@@ -1,4 +1,4 @@
-const APPWIDTH = 1024;
+const APPWIDTH = 1044;
 const APPHEIGHT = 728;
 
 const app = new PIXI.Application({width: APPWIDTH, height: APPHEIGHT});
